@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How To Cook - Homepage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!---For icon-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--For font-->
+    <link
+      href="https://fonts.cdnfonts.com/css/brittany-signature"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Icône pour ouvrir la barre latérale -->
+      <i
+        id="menu-icon"
+        class="material-icons menu-toggle"
+        style="font-size: 40px"
+        >menu</i
+      >
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h1 id="HowToCook-logo">How To Cook</h1>
+      </div>
+    </header>
+
+    <!-- Barre latérale -->
+    <div id="sidebar">
+      <!-- Icône pour fermer -->
+      <i
+        id="close-icon"
+        class="material-icons menu-toggle hidden"
+        style="font-size: 40px"
+        >arrow_backward</i
+      >
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Recipes</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <section id="main-function-section">
+        <div
+          id="main-function-button-container"
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <button id="debute-planify" class="button1">
+            Faire une plannification
+          </button>
+          <button id="send-to-info" class="button1">info importante</button>
+          <button id="debute-sharing" class="button1">
+            Partager une recette
+          </button>
+        </div>
+      </section>
+      <section
+        id="popular-recipe-section"
+        style="
+          margin-top: 20px;
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          border-radius: 25px;
+        "
+      >
+        <div
+          id="popular-recipe-title"
+          style="
+            margin: 25px;
+            font-family: Open Sans;
+            font-size: 30px;
+            font-weight: bold;
+          "
+        >
+          Les recettes populaires
+        </div>
+        <div id="slider">
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/gfHdUFKf-f1xNK2Vx0GlMiTe3AY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/5783153-9d5db46d3eba4f45b4e05d87c976637d.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Chili-Lime Chicken Bowls</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">2.90 CAD</span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/pHPinSwLxxMEoZmqfAkUUODLp6k=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Kabocha-Pumpkin-Coconut-Milk-Cake-Beauty-0308_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-3676d13ec4b240b2b3d3e148694de9fc.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Bingka Labu Kuning (Pumpkin Cake)</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">1.40 CAD</span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/FFQHN1IKYwc3YQYt2L1kirTCbjU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GW-MushroomRicottaBreakfastTartines-3x2-Step--0670-e5ffc397ea22487db5e99905857dffb7.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Mushroom-Ricotta Tartines</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">0.90 CAD</span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/gfHdUFKf-f1xNK2Vx0GlMiTe3AY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/5783153-9d5db46d3eba4f45b4e05d87c976637d.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Chili-Lime Chicken Bowls</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">2.90 CAD</span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/pHPinSwLxxMEoZmqfAkUUODLp6k=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Kabocha-Pumpkin-Coconut-Milk-Cake-Beauty-0308_preview_maxWidth_4000_maxHeight_4000_ppi_300_quality_100-3676d13ec4b240b2b3d3e148694de9fc.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Bingka Labu Kuning (Pumpkin Cake)</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">1.40 CAD</span>
+              </div>
+            </div>
+          </a>
+          <a
+            href="file:///C:/Users/souro/Desktop/HowToCook/prototype/recipe_presentation.html"
+            class="meal-preview"
+          >
+            <div class="meal-img-container">
+              <img
+                src="https://www.eatingwell.com/thmb/FFQHN1IKYwc3YQYt2L1kirTCbjU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GW-MushroomRicottaBreakfastTartines-3x2-Step--0670-e5ffc397ea22487db5e99905857dffb7.jpg"
+                alt="Chili-Lime Chicken Bowls"
+              />
+            </div>
+            <div class="meal-info">
+              <p class="meal-name">Mushroom-Ricotta Tartines</p>
+              <div class="texte-price">
+                Price per portion : <span class="price">0.90 CAD</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section id="main-info">
+        <div
+          id="info-container"
+          style="
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 25px;
+          "
+        >
+          <div
+            id="info-container-title"
+            style="
+              margin: 25px;
+              font-family: Open Sans;
+              font-size: 30px;
+              font-weight: bold;
+            "
+          >
+            Informations importantes
+          </div>
+          <div id="information-list" style="display: flex">
+            <ul style="font-family: Open Sans">
+              <li>
+                Les prix des produits sont basés sur l'évaluation personnelle
+                des auteurs et sont affichées sans taxe.
+              </li>
+              <li>
+                Le prix des assaisonements ne sera pas toujours mentionnées ou
+                utilisés lors de l'estimation du coût du repas.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 How To Cook. All rights reserved.</p>
+    </footer>
+    <!-- Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Récupérer les éléments
+        const menuIcon = document.getElementById("menu-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const sidebar = document.getElementById("sidebar");
+
+        // Ouvrir la barre latérale
+        menuIcon.addEventListener("click", () => {
+          sidebar.classList.add("open");
+          menuIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        });
+
+        // Fermer la barre latérale
+        closeIcon.addEventListener("click", () => {
+          sidebar.classList.remove("open");
+          closeIcon.classList.add("hidden");
+          menuIcon.classList.remove("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

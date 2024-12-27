@@ -1,0 +1,166 @@
+#HowToCook-logo {
+  color: #000;
+  font-family: "Brittany Signature", sans-serif;
+  font-size: 60px;
+}
+
+.button1 {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+}
+
+.button1:hover {
+  transform: scale(1.05); /* Agrandit légèrement le bouton lors du survol */
+}
+
+/* body */
+
+body {
+  background-color: rgb(251, 186, 114);
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  position: relative;
+}
+/* popular-recipe-section */
+
+/* Conteneur principal de l'élément cliquable */
+.meal-preview {
+  display: inline-block; /* Adapte la taille à son contenu */
+  border: 1px solid orange; /* Bordure de la carte */
+  border-radius: 10px; /* Coins arrondis */
+  overflow: hidden; /* Coupe les débordements */
+  width: 200px; /* Largeur fixe */
+  text-decoration: none; /* Supprime le soulignement des liens */
+  background-color: #fff; /* Fond blanc */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer; /* Curseur pointeur pour indiquer l'interactivité */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  margin: 15px;
+}
+
+.meal-preview:hover {
+  transform: scale(1.05); /* Agrandit légèrement au survol */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+}
+
+.meal-preview:visited {
+  color: inherit; /* Garde la couleur initiale */
+  background-color: #fff; /* Empêche tout changement de fond */
+}
+
+/* Conteneur de l'image */
+.meal-img-container {
+  width: 100%; /* Largeur 100% du parent */
+  height: 150px; /* Hauteur fixe pour l'image */
+  overflow: hidden; /* Coupe les débordements */
+}
+
+.meal-img-container img {
+  width: 100%; /* L'image remplit la largeur */
+  height: 100%; /* L'image remplit la hauteur */
+  object-fit: cover; /* Recadre l'image pour remplir sans déformation */
+  display: block; /* Supprime les espaces blancs autour de l'image */
+}
+
+/* Informations texte */
+.meal-info {
+  padding: 10px; /* Espacement autour du texte */
+  height: 80px; /* Hauteur fixe pour le texte */
+  text-align: center; /* Centre le texte */
+  display: flex; /* Active Flexbox pour aligner les enfants */
+  flex-direction: column; /* Aligne les éléments verticalement */
+  justify-content: space-between; /* Distribue le contenu uniformément */
+}
+
+.meal-name {
+  font-weight: bold;
+  font-size: 14px; /* Taille du texte */
+  margin: 0; /* Supprime les marges par défaut */
+  overflow: hidden; /* Coupe le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute des points de suspension */
+}
+
+.texte-price {
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.price {
+  color: orange;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Barre latérale */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -255px;
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  color: orange;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: solid orange;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.open {
+  left: 0;
+}
+
+/* Icônes */
+.menu-toggle {
+  font-family: "Material Icons";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu-toggle.hidden {
+  display: none; /* Masquer l'icône */
+}
+
+/* Liste dans la barre latérale */
+#sidebar ul {
+  list-style: none;
+  padding-top: 25px;
+  margin: 50px 0 0 0; /* Laisser un espace sous l'icône */
+}
+
+#sidebar ul li {
+  padding: 15px;
+  font-weight: bold;
+}
+
+#sidebar ul li a {
+  color: orange;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: black;
+}

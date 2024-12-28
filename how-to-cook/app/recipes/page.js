@@ -7,8 +7,8 @@ export default function Recipes() {
       <h1>Our Recipes</h1>
       <ul>
         {recipes.recipes.map((recipe) => (
-          <li key={recipe.id}>
-            <Link href={`/recipes/${recipe.id}`}>{recipe.title}</Link>
+          <li key={recipe._id}>
+            <Link href={`/recipes/${recipe._id}`}>{recipe.name}</Link>
           </li>
         ))}
       </ul>

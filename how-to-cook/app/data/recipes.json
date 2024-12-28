@@ -1,22 +1,75 @@
 {
   "recipes": [
     {
-      "id": 1,
-      "title": "Pasta Carbonara",
-      "ingredients": ["spaghetti", "eggs", "bacon", "parmesan"],
-      "instructions": "1. Cook pasta 2. Mix eggs and cheese 3. Combine all"
+      "_id": 1,
+      "name": "Pasta Carbonara",
+      "link": "https://example.com/pasta-carbonara-recipe",
+      "image": "https://example.com/images/pasta-carbonara.jpg",
+      "basePortion": 4,
+      "likes": 0,
+      "cost": 7.0,
+      "ingredients": [
+        {
+          "name": "Pasta",
+          "quantity": 400,
+          "unit": "g",
+          "price": 2.0,
+          "type": "indiv"
+        },
+        {
+          "name": "Eggs",
+          "quantity": 4,
+          "unit": "pieces",
+          "price": 1.5,
+          "type": "indiv"
+        },
+        {
+          "name": "Parmesan Cheese",
+          "quantity": 100,
+          "unit": "g",
+          "price": 3.0,
+          "type": "div"
+        },
+        {
+          "name": "Bacon",
+          "quantity": 150,
+          "unit": "g",
+          "price": 2.5,
+          "type": "indiv"
+        }
+      ]
     },
     {
-      "id": 2,
-      "title": "Chicken Curry",
-      "ingredients": ["chicken", "curry powder", "coconut milk", "rice"],
-      "instructions": "1. Cook chicken 2. Add curry 3. Simmer in coconut milk"
-    },
-    {
-      "id": 3,
-      "title": "Chocolate Cake",
-      "ingredients": ["flour", "cocoa", "sugar", "eggs"],
-      "instructions": "1. Mix dry ingredients 2. Add wet ingredients 3. Bake"
+      "_id": 2,
+      "name": "Chicken Curry",
+      "link": "https://example.com/chicken-curry-recipe",
+      "image": "https://example.com/images/chicken-curry.jpg",
+      "basePortion": 4,
+      "likes": 0,
+      "cost": 6.5,
+      "ingredients": [
+        {
+          "name": "Chicken",
+          "quantity": 500,
+          "unit": "g",
+          "price": 5.0,
+          "type": "indiv"
+        },
+        {
+          "name": "Curry",
+          "quantity": 2,
+          "unit": "teaspoon",
+          "price": 0.5,
+          "type": "div"
+        },
+        {
+          "name": "Rice",
+          "quantity": 200,
+          "unit": "g",
+          "price": 1.0,
+          "type": "indiv"
+        }
+      ]
     }
   ]
 }

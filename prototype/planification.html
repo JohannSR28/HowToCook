@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+      table {
+        width: 100%;
+        border-radius: 25px;
+        border: 1px solid orange;
+        border-collapse: separate; /* Change de collapse à separate */
+        border-spacing: 0; /* Ajuste les marges entre les cellules */
+        overflow: hidden; /* Masque les débordements */
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid orange; /* Bordure autour de chaque cellule */
+        text-align: center; /* Centre le texte */
+        background-color: white; /* Couleur de fond par défaut */
+        transition: background-color 0.3s, transform 0.2s; /* Animation douce */
+      }
+
+      td:hover {
+        background-color: #ffe5cc; /* Change la couleur de fond au survol */
+        transform: scale(1.05); /* Agrandit légèrement la cellule */
+        cursor: pointer; /* Change le curseur au survol */
+      }
+
+      /* Style pour les en-têtes */
+      th {
+        background-color: orange;
+        color: white;
+      }
+
+      tr:nth-child(odd) {
+        background-color: rgb(251, 186, 114);
+      }
+
+      tr:hover {
+        background-color: #ffe5cc;
+      }
+
+      td:hover,
+      th:hover {
+        cursor: pointer;
+      }
+
+      tr:first-child th:first-child {
+        border-top-left-radius: 23px;
+      }
+
+      tr:first-child th:last-child {
+        border-top-right-radius: 23px;
+      }
+
+      tr:last-child td:first-child {
+        border-bottom-left-radius: 24.5px;
+      }
+
+      tr:last-child td:last-child {
+        border-bottom-right-radius: 24.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Table Headers</h2>
+    <p>Use the TH element to define table headers.</p>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>Sunday</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+      </tr>
+      <tr>
+        <td>week 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>week 2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>week 3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>week 4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

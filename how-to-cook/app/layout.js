@@ -9,6 +9,7 @@ export default function RootLayout({ children }) {
           <Link href="/recipes">Recipes</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/login">Login</Link>
         </nav>
         {children}
       </body>

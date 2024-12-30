@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe Drag & Drop</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      #game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-gap: 5px;
+        margin-bottom: 20px;
+      }
+      .cell {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #333;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 100px;
+        background-color: #f0f0f0;
+      }
+      .cell.droppable {
+        background-color: #d0f0d0;
+      }
+      #symbols {
+        display: flex;
+        gap: 10px;
+      }
+      .symbol {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 60px;
+        border: 2px solid #333;
+        border-radius: 50%;
+        cursor: grab;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jeu Tic-Tac-Toe (Drag & Drop)</h1>
+    <div id="game-board"></div>
+    <div id="symbols">
+      <div class="symbol" draggable="true" id="X">X</div>
+      <div class="symbol" draggable="true" id="O">O</div>
+    </div>
+    <p id="status">Joueur X, c'est à vous de jouer !</p>
+
+    <script>
+      const board = document.getElementById("game-board");
+      const symbols = document.querySelectorAll(".symbol");
+      const status = document.getElementById("status");
+      let currentPlayer = "X"; // Le joueur actuel
+
+      // Initialiser le plateau
+      for (let i = 0; i < 9; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.dataset.index = i;
+        cell.addEventListener("dragover", onDragOver);
+        cell.addEventListener("drop", onDrop);
+        board.appendChild(cell);
+      }
+
+      // Ajouter les événements de drag & drop aux symboles
+      symbols.forEach((symbol) => {
+        symbol.addEventListener("dragstart", onDragStart);
+      });
+
+      function onDragStart(event) {
+        event.dataTransfer.setData("text/plain", event.target.id);
+      }
+
+      function onDragOver(event) {
+        event.preventDefault();
+        event.target.classList.add("droppable");
+      }
+
+      function onDrop(event) {
+        event.preventDefault();
+        const symbolId = event.dataTransfer.getData("text/plain");
+        const droppedSymbol = document.getElementById(symbolId);
+
+        // Vérifier si la cellule est vide
+        if (!event.target.textContent) {
+          event.target.textContent = currentPlayer;
+          event.target.classList.remove("droppable");
+
+          // Passer au joueur suivant
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+          status.textContent = `Joueur ${currentPlayer}, c'est à vous de jouer !`;
+
+          // Vérifier si quelqu'un a gagné
+          checkGameStatus();
+        } else {
+          alert("Cette case est déjà occupée !");
+        }
+      }
+
+      function checkGameStatus() {
+        const cells = document.querySelectorAll(".cell");
+        const winningCombinations = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+
+        for (const combination of winningCombinations) {
+          const [a, b, c] = combination;
+          if (
+            cells[a].textContent &&
+            cells[a].textContent === cells[b].textContent &&
+            cells[a].textContent === cells[c].textContent
+          ) {
+            status.textContent = `Joueur ${cells[a].textContent} a gagné !`;
+            return;
+          }
+        }
+
+        // Vérifier si toutes les cases sont remplies
+        const isDraw = [...cells].every((cell) => cell.textContent);
+        if (isDraw) {
+          status.textContent = "Match nul !";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/* RootLayout.module.css */
+
+/* Bouton de menu */
+.menu-btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 10px 20px;
+  font-size: 100px; /* Taille de l'icône */
+  cursor: pointer;
+  background: none; /* Supprime l'arrière-plan par défaut */
+  border: none; /* Supprime les bordures */
+  color: black; /* Couleur de l'icône ou du texte */
+  z-index: 1001; /* Assure que le bouton reste au-dessus des autres éléments */
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Sidebar masquée par défaut */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.open {
+  left: 0; /* Sidebar visible */
+}
+
+/* Bouton pour fermer la sidebar */
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* Liste de navigation */
+.sidebar ul {
+  list-style: none;
+  padding-top: 60px;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 25px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  color: orange;
+}
+
+/* Contenu principal */
+.content {
+  transition: margin-left 0.3s ease;
+}
+
+.content.shifted {
+  margin-left: 250px; /* Décale le contenu lorsque la sidebar est ouverte */
+}

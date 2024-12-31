@@ -1,7 +1,8 @@
-/* globals.css */
+/* Import des polices */
 @import url("https://fonts.cdnfonts.com/css/brittany-signature");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
+/* Styles globaux */
 body {
   font-family: "Open Sans", sans-serif;
 }

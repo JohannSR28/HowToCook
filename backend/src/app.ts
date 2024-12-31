@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes";
-import swaggerUi from "swagger-ui-express";
-import swaggerJsDoc from "swagger-jsdoc";
 
 // Initialisation de l'application
 const app = express();
@@ -35,21 +33,5 @@ mongoose
 
 // Routes
 app.use("/api/users", userRoutes);
-
-// Swagger
-const swaggerOptions = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "HowToCook API",
-      version: "1.0.0",
-      description: "API documentation for HowToCook application",
-    },
-  },
-  apis: ["./src/routes/*.ts"], // Chemin vers vos fichiers de routes
-};
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 export default app;

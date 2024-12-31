@@ -1,19 +1,21 @@
 /* RootLayout.module.css */
 
 /* Bouton de menu */
-.menu-btn {
-  position: fixed;
+.menubtn {
   top: 30px;
   left: 30px;
-  padding: 10px 20px;
-  font-size: 100px; /* Taille de l'icône */
+  padding: 5px 10px; /* Réduit le padding pour une taille de bouton plus petite */
+  font-size: 40px; /* Ajuste la taille du texte ou de l'icône (par exemple, à 24px) */
   cursor: pointer;
-  background: none; /* Supprime l'arrière-plan par défaut */
-  border: none; /* Supprime les bordures */
-  color: black; /* Couleur de l'icône ou du texte */
-  z-index: 1001; /* Assure que le bouton reste au-dessus des autres éléments */
+  background: none; /* Pas de fond pour le bouton */
+  border: none; /* Pas de bordure */
+  color: black; /* Couleur du texte ou de l'icône */
+  z-index: 999; /* Assure que le bouton reste au-dessus des autres éléments */
 }
 
+.menu-icon:hover {
+  color: orange; /* Change la couleur au survol */
+}
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -75,4 +77,18 @@
 
 .content.shifted {
   margin-left: 250px; /* Décale le contenu lorsque la sidebar est ouverte */
+}
+
+.nav {
+  display: flex;
+  gap: 20px; /* Ajoute un espace fixe de 20px entre les éléments */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex; /* Active Flexbox */
+  align-items: center; /* Aligne verticalement les éléments au centre */
+  gap: 20px; /* Ajoute un espace entre le bouton et la liste */
 }

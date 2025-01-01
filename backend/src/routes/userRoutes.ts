@@ -14,21 +14,10 @@ router.get("/profile", authenticateToken, (req: Request, res: Response) => {
   if (!user) {
     return res.status(404).json({ error: "User not found." });
   }
-
   res.status(200).json({
     message: "Profile accessed successfully.",
     user,
   });
-});
-
-// Route GET : Récupérer tous les utilisateurs
-router.get("/", async (req: Request, res: Response) => {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (err) {
-    res.status(500).json({ error: "Failed to fetch users" });
-  }
 });
 
 // Regex pour validation
@@ -75,6 +64,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
       return;
     }
     */
+
     // Hachage du mot de passe avec bcrypt
     const saltRounds = 10; // Nombre de rounds pour générer le sel
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -85,6 +75,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
       username,
       email,
       password: hashedPassword, // Utiliser le mot de passe haché
+      recipesId: [],
     });
     await newUser.save();
 
@@ -115,11 +106,14 @@ router.post("/auth", async (req: Request, res: Response) => {
       return res.status(401).json({ error: "Invalid password." });
     }
 
-    // Génération du token JWT
+    // Crée un token avec l'ID utilisateur et d'autres infos si nécessaires
     const token = jwt.sign(
-      { userId: user._id, username: user.username },
+      {
+        userId: user._id,
+        username: user.username, // Optionnel : ajoute le rôle si nécessaire
+      },
       SECRET_KEY,
-      { expiresIn: "1h" } // Le token expirera dans 1 heure
+      { expiresIn: "1h" } // Durée de validité
     );
 
     // Retourner le token au frontend
@@ -132,20 +126,6 @@ router.post("/auth", async (req: Request, res: Response) => {
   }
 });
 
-// Route DELETE : Supprimer un utilisateur par son ID
-router.delete("/:id", async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-
-    const user = await User.findByIdAndDelete(id);
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
-
-    res.status(200).json({ message: "User deleted successfully" });
-  } catch (err) {
-    res.status(500).json({ error: "Failed to delete user" });
-  }
-});
+// ajouter des recttes à l'utilisateur
 
 export default router;

@@ -92,3 +92,14 @@
   align-items: center; /* Aligne verticalement les éléments au centre */
   gap: 20px; /* Ajoute un espace entre le bouton et la liste */
 }
+
+.footer {
+  background-color: white;
+  /*background-color: #333;*/
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

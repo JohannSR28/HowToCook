@@ -1,0 +1,74 @@
+/* Conteneur principal de l'élément cliquable */
+.meal_preview {
+  display: inline-block;
+  border: 1px solid orange;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  text-decoration: none;
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+}
+
+.meal_preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.meal_preview:visited {
+  color: inherit;
+  background-color: #fff;
+}
+
+/* Conteneur de l'image */
+.meal_img_container {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.meal_img_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image_fit {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Informations texte */
+.meal_info {
+  padding: 10px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.meal_name {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.texte_price {
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.price {
+  color: orange;
+  font-size: 12px;
+  font-weight: bold;
+}

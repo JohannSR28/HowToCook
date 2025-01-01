@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes";
+import recipeRoutes from "./routes/recipeRoutes";
 
 // Initialisation de l'application
 const app = express();
@@ -33,5 +34,6 @@ mongoose
 
 // Routes
 app.use("/api/users", userRoutes);
+app.use("/api/recipes", recipeRoutes);
 
 export default app;

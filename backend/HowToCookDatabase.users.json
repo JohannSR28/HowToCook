@@ -1,0 +1,23 @@
+[
+  {
+    "name": "kirito",
+    "username": "kirito",
+    "email": "kirito@gmail.com",
+    "password": "$2b$10$jtmQaflAOBcMN5En75FZdOWBJeBC/NY6ZrPEQHHnQ2DlDNB0PK/um",
+    "recipesId": [1]
+  },
+  {
+    "name": "asuna",
+    "username": "asuna",
+    "email": "asuna@gmail.com",
+    "password": "$2b$10$KIXQ8FZ5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5",
+    "recipesId": [2]
+  },
+  {
+    "name": "klein",
+    "username": "klein",
+    "email": "klein@gmail.com",
+    "password": "$2b$10$YIXQ8FZ5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5",
+    "recipesId": []
+  }
+]

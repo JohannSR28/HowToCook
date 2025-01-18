@@ -17,6 +17,7 @@ interface IRecipe extends Document {
   likes: string[];
   cost: number;
   ingredients: IIngredient[];
+  description: string; // Ajout de l'attribut description
 }
 
 const IngredientSchema: Schema = new Schema({
@@ -36,6 +37,7 @@ const RecipeSchema: Schema = new Schema({
   likes: { type: [String], default: [] },
   cost: { type: Number, required: true },
   ingredients: { type: [IngredientSchema], required: true },
+  description: { type: String, required: true }, // Ajout dans le schéma
 });
 
 const Recipe = mongoose.model<IRecipe>("Recipe", RecipeSchema);

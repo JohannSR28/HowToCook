@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
 
 // Crée le contexte utilisateur
 const UserContext = createContext();
@@ -10,6 +11,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null); // État pour stocker les données utilisateur
   const [isAuthenticated, setIsAuthenticated] = useState(false); // État d'authentification
+  const router = useRouter();
 
   // Vérifie et met à jour l'état utilisateur à partir du token
   useEffect(() => {
@@ -44,6 +46,7 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
     setUser(null);
     setIsAuthenticated(false);
+    router.push("/"); // Redirige vers la page d'accueil
   };
 
   return (

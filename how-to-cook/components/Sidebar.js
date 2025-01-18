@@ -19,13 +19,19 @@ export default function Sidebar({
           <>
             <li>
               <Link href="/" onClick={toggleSidebar}>
-                Dashboard
+                Home
               </Link>
             </li>
             <li>
-              <button onClick={handleLogout} className={styles.logoutBtn}>
+              <Link
+                href="/"
+                onClick={() => {
+                  toggleSidebar();
+                  handleLogout();
+                }}
+              >
                 Logout
-              </button>
+              </Link>
             </li>
           </>
         ) : (

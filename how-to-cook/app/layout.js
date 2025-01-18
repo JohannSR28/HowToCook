@@ -1,11 +1,11 @@
 "use client";
 
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
-import styles from "./styles/RootLayout.module.css";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import styles from "../styles/Home.module.css";
 import { Toaster } from "react-hot-toast";
-import "./styles/globals.css";
-import { UserProvider, useUser } from "./contexts/UserContext";
+import "../styles/globals.css";
+import { UserProvider, useUser } from "../contexts/UserContext";
 import { useState } from "react";
 
 export default function RootLayout({ children }) {

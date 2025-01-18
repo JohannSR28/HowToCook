@@ -1,8 +1,8 @@
 "use client";
-import styles from "../styles/register.module.css";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import styles from "../../styles/register.module.css";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -88,11 +88,11 @@ export default function RegisterForm() {
         <h1>User Registration</h1>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label className={styles.label}>Name</label>
         <input
           onChange={(e) => setName(e.target.value)}
-          className="input"
+          className={styles.input}
           value={name}
           type="text"
         />
@@ -100,7 +100,7 @@ export default function RegisterForm() {
         <label className={styles.label}>Username</label>
         <input
           onChange={(e) => setUserName(e.target.value)}
-          className="input"
+          className={styles.input}
           value={userName}
           type="text"
         />
@@ -108,7 +108,7 @@ export default function RegisterForm() {
         <label className={styles.label}>Email</label>
         <input
           onChange={(e) => setEmail(e.target.value)}
-          className="input"
+          className={styles.input}
           value={email}
           type="email"
         />
@@ -116,23 +116,27 @@ export default function RegisterForm() {
         <label className={styles.label}>Password</label>
         <input
           onChange={(e) => setPassword(e.target.value)}
-          className="input"
+          className={styles.input}
           value={password}
           type="password"
         />
 
-        <div>
+        <div className={styles.btnContainer}>
           <button
             onClick={() => {
               window.location.href = "/";
             }} // Redirige vers l'accueil
-            className={styles.btn}
+            className={styles.button1}
             type="button"
           >
-            Back
+            Retour
           </button>
-          <button onClick={handleSubmit} className={styles.btn} type="submit">
-            Submit
+          <button
+            onClick={handleSubmit}
+            className={styles.button1}
+            type="submit"
+          >
+            Créer le compte
           </button>
         </div>
       </form>

@@ -1,0 +1,168 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.titleForm {
+  font-family: "Brittany Signature", sans-serif;
+  font-size: 40px;
+  color: orange;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.recipeForm {
+  border: 1px solid orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.ingredientForm {
+  border: 1px solid orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.button {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.button1 {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+}
+
+.button1:hover {
+  transform: scale(1.05); /* Agrandit légèrement le bouton lors du survol */
+}
+
+.ingredientHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.addIngredientButton {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+  position: relative; /* Nécessaire pour positionner le message */
+}
+
+.addIngredientButton:hover {
+  transform: scale(1.05); /* Agrandit légèrement le bouton lors du survol */
+}
+
+.addIngredientButton::after {
+  content: attr(
+    data-hover-message
+  ); /* Utilise le message défini dans l'attribut HTML */
+  position: absolute;
+  top: -35px; /* Positionne le message au-dessus du bouton */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: orange;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap; /* Empêche les sauts de ligne */
+  opacity: 0; /* Masque le message par défaut */
+  pointer-events: none; /* Empêche les interactions avec le message */
+  transition: opacity 0.2s ease-in-out; /* Transition fluide pour l'apparition */
+}
+
+.addIngredientButton:hover::after {
+  opacity: 1; /* Affiche le message lors du survol */
+}
+
+.ingredientList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid orange;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.ingredientItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: center;
+  gap: 15px; /* Ajoute un espacement uniforme entre les enfants */
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredientItem input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}
+
+.ingredientItem select {
+  padding: 5px;
+  border: 1px solid orange;
+  border-radius: 5px;
+}

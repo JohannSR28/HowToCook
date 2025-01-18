@@ -1,0 +1,63 @@
+/* Formulaire - centrer tout */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  margin: 0 auto; /* Centre le formulaire dans la page */
+  width: 100%; /* Largeur relative */
+  max-width: 400px; /* Réduit la largeur maximale */
+  padding: 20px; /* Ajoute un espace intérieur */
+  border: 1px solid orange;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Label pour les champs */
+.label {
+  display: block;
+  font-size: larger;
+  color: black;
+  text-align: center; /* Centre le texte */
+}
+
+/* Style des champs de texte */
+.input {
+  font-size: larger;
+  margin: 10px 0; /* Espace vertical */
+  width: 100%; /* S'étend à la largeur du parent */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style des boutons */
+.button1 {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active Flexbox */
+  justify-content: center; /* Centre horizontalement */
+}
+
+/* Effet au survol du bouton */
+.button1:hover {
+  transform: scale(1.05); /* Agrandissement léger */
+}
+
+/* Conteneur des boutons (alignement horizontal) */
+.btnContainer {
+  display: flex; /* Disposition horizontale */
+  justify-content: center; /* Centrer horizontalement */
+  gap: 10px; /* Espacement entre les boutons */
+  margin-top: 20px; /* Espacement au-dessus des boutons */
+}

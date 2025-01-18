@@ -3,7 +3,7 @@ import styles from "../styles/recipeDisplay.module.css"; // Importe le CSS
 
 export default function RecipeDisplay({ recipe }) {
   return (
-    <a href={`/recipe/${recipe.id}`} className={styles.meal_preview}>
+    <a href={`/recipes/${recipe._id}`} className={styles.meal_preview}>
       <div className={styles.meal_img_container}>
         <Image
           src={recipe.image}

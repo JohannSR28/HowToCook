@@ -1,0 +1,28 @@
+.customBackground {
+  border: 1.5px solid orange;
+  border-radius: 25px;
+  overflow: hidden; /* Assure que rien ne dépasse des bordures */
+  background-color: white;
+  padding: 15px;
+}
+
+.button1 {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+}
+
+.button1:hover {
+  transform: scale(1.05); /* Agrandit légèrement le bouton lors du survol */
+}

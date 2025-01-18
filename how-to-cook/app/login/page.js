@@ -1,5 +1,5 @@
 "use client";
-import styles from "../styles/register.module.css";
+import styles from "../../styles/register.module.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -47,30 +47,32 @@ export default function LoginForm() {
         <label className={styles.label}>Username</label>
         <input
           onChange={(e) => setUserName(e.target.value)}
-          className="input"
+          className={styles.input}
           value={userName}
           type="text"
           aria-label="Enter your username"
         />
+
         <label className={styles.label}>Password</label>
         <input
           onChange={(e) => setPassword(e.target.value)}
-          className="input"
+          className={styles.input}
           value={password}
           type="password"
           aria-label="Enter your password"
         />
-        <div>
+
+        <div className={styles.btnContainer}>
           <button
             onClick={() => {
               window.location.href = "/";
             }} // Redirige vers l'accueil
-            className={styles.btn}
+            className={styles.button1}
             type="button"
           >
-            Back
+            Retour
           </button>
-          <button className={styles.btn} type="submit">
+          <button className={styles.button1} type="submit">
             Connection
           </button>
         </div>

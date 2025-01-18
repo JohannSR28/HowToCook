@@ -126,6 +126,19 @@ router.post("/auth", async (req: Request, res: Response) => {
   }
 });
 
-// ajouter des recttes à l'utilisateur
+// get user by id
+router.get("/:id", async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found." });
+    }
+    res.status(200).json({ user });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while getting the user." });
+  }
+});
 
 export default router;

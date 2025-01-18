@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcomeMessage {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between; /* Distribution horizontale */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.HowToCooklogo {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+  font-family: "Brittany Signature", sans-serif;
+  font-size: 60px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recipeContainer {
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 97%;
+  margin-bottom: 50px;
+}
+
+.button1 {
+  border: solid 1px orange;
+  color: orange;
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+}
+
+.button1:hover {
+  transform: scale(1.05); /* Agrandit légèrement le bouton lors du survol */
+}
+
+.button1Close {
+  border: solid 1px orange;
+  color: orange;
+  background-color: gray;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  transition: transform 0.2s ease-in-out; /* Transition fluide pour l'effet de mise à l'échelle */
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Active un conteneur flexible */
+  justify-content: center; /* Centre le texte horizontalement dans Flexbox */
+  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+}
+
+.button1Close:hover::after {
+  content: "Cette fonctionnalité est en développement"; /* Texte affiché */
+  position: absolute; /* Position relative au bouton */
+  bottom: -35px; /* Place le message en dessous du bouton */
+  left: 50%; /* Centre horizontalement */
+  transform: translateX(-50%); /* Ajuste le centrage */
+  background-color: black; /* Fond noir pour le contraste */
+  color: white; /* Texte blanc */
+  padding: 5px 10px; /* Espacement interne */
+  border-radius: 5px; /* Bord arrondi */
+  font-size: 14px; /* Taille de police réduite */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  z-index: 10; /* Assure que le texte s'affiche au-dessus */
+  opacity: 0; /* Initialement invisible */
+  pointer-events: none; /* Empêche l'interaction avec le texte */
+  transition: opacity 0.2s ease-in-out; /* Transition fluide pour l'apparition */
+}
+
+.button1Close:hover::after {
+  opacity: 1; /* Rendre visible au survol */
+}

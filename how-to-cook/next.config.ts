@@ -1,11 +1,25 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  // next.config.js
-  reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    domains: ["example.com", "equipenutrition.ca"], // Ajoutez ici le domaine
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "example.com",
+      },
+      {
+        protocol: "https",
+        hostname: "equipenutrition.ca",
+      },
+      {
+        protocol: "https",
+        hostname: "thegreatbritishbakeoff.co.uk",
+      },
+      {
+        protocol: "https",
+        hostname: "www.thecookierookie.com",
+      },
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

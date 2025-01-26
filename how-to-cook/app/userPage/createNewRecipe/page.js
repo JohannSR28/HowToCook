@@ -178,7 +178,7 @@ export default function CreateNewRecipe() {
             />
           </div>
 
-          <p>{JSON.stringify(recipeData)}</p>
+          {/*<p>{JSON.stringify(recipeData)}</p> */}
         </div>
 
         <div className={styles.ingredientForm}>
@@ -251,7 +251,7 @@ export default function CreateNewRecipe() {
               ))}
             </div>
           ) : null}
-          <p>{JSON.stringify(ingredients)}</p>
+          {/*<p>{JSON.stringify(ingredients)}</p> */}
         </div>
 
         <div className={styles.ingredientForm}>

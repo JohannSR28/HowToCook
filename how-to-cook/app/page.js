@@ -1,9 +1,10 @@
 "use client";
 
 import { useUser } from "../contexts/UserContext";
-import { toast } from "react-hot-toast";
+//import { toast } from "react-hot-toast";
 import UserPage from "./userPage/home/page";
 import InvitePage from "./invitePage/home/page";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const { user } = useUser();
@@ -11,22 +12,24 @@ export default function Home() {
   return (
     <div>
       {user ? <UserPage /> : <InvitePage />}
-      <div>
+      {/* <div>
         <h1>Test Endpoint</h1>
         <button onClick={handleTestEndpoint}>Test Secure Endpoint</button>
       </div>
-      <div>
+     <div>
         <h1>Welcome to the Section Page</h1>
         {user ? (
           <p>Logged in as : {JSON.stringify(user)}</p> // Affiche les données utilisateur
         ) : (
           <p>Please log in to see your information.</p>
         )}
-      </div>
+      </div>*/}
+      <Footer />
     </div>
   );
 }
 
+/*
 const handleTestEndpoint = async () => {
   try {
     // Récupère le token JWT stocké dans localStorage
@@ -55,3 +58,4 @@ const handleTestEndpoint = async () => {
     toast.error("Failed to connect to the server.");
   }
 };
+*/

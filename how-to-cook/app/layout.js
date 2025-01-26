@@ -51,7 +51,6 @@ function ContentLayout({ isOpen, toggleSidebar, children }) {
         handleLogout={handleLogout}
       />
       <main className={styles.content}>{children}</main>
-      {/*<footer className={styles.footer}></footer>*/}
     </>
   );
 }

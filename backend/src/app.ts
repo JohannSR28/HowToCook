@@ -3,32 +3,44 @@ import cors from "cors";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoutes";
 import recipeRoutes from "./routes/recipeRoutes";
+import dotenv from "dotenv";
 
 // Initialisation de l'application
 const app = express();
+dotenv.config();
 
 // Middlewares
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 // Connexion à MongoDB
+const MONGO_URI = process.env.MONGO_URI; // Utilisation de la variable d'environnement
+
+if (!MONGO_URI) {
+  console.error("Erreur : MONGO_URI n'est pas défini dans le fichier .env");
+  process.exit(1);
+}
 mongoose
-  .connect("mongodb://localhost:27017/HowToCookDatabase", {})
-  .then(async () => {
+  .connect(MONGO_URI, {})
+  .then(() => {
     console.log("Connected to MongoDB");
 
-    // Récupérer les collections de la base de données
+    // Logs pour les collections existantes
     const db = mongoose.connection.db;
-    if (!db) {
-      throw new Error("Database connection failed");
+    if (db) {
+      db.listCollections()
+        .toArray()
+        .then((collections) => {
+          console.log(`Number of collections: ${collections.length}`);
+          console.log(
+            "Collections:",
+            collections.map((col) => col.name)
+          );
+        })
+        .catch((err) => console.error("Error fetching collections:", err));
+    } else {
+      console.error("Database connection is not defined.");
     }
-    const collections = await db.listCollections().toArray();
-
-    console.log(`Number of collections: ${collections.length}`);
-    console.log(
-      "Collections:",
-      collections.map((col) => col.name)
-    );
   })
   .catch((err) => console.error("MongoDB connection error:", err));
 

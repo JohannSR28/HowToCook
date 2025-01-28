@@ -18,14 +18,14 @@ export default function useUserRecipes() {
 
       try {
         setIsLoading(true);
-        const loadingToast = toast.loading("Fetching your recipes...");
+        //const loadingToast = toast.loading("Fetching your recipes...");
         const data = await fetchUserRecipes(user.userId);
 
         setUserRecipes(data || []);
-        toast.success("Recipes retrieved successfully!", { id: loadingToast });
+        // toast.success("Recipes retrieved successfully!", { id: loadingToast });
       } catch (err) {
         console.error("Error fetching user recipes:", err);
-        toast.error("Failed to fetch recipes.");
+        // toast.error("Failed to fetch recipes.");
       } finally {
         setIsLoading(false);
       }

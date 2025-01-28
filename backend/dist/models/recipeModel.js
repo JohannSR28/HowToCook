@@ -34,12 +34,23 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const UserSchema = new mongoose_1.Schema({
+const IngredientSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: false }, // Ajout de select: false
-    recipesId: { type: [String], default: [] }, // IDs des recettes comme string
+    quantity: { type: Number, required: true },
+    unit: { type: String, required: true },
+    price: { type: Number, required: true },
+    type: { type: String, enum: ["indiv", "div"], required: true },
 });
-const User = mongoose_1.default.model("User", UserSchema);
-exports.default = User;
+const RecipeSchema = new mongoose_1.Schema({
+    name: { type: String, required: true },
+    link: { type: String, required: true },
+    image: { type: String, required: true },
+    basePortion: { type: Number, required: true },
+    author: { type: String, required: true },
+    likes: { type: [String], default: [] },
+    cost: { type: Number, required: true },
+    ingredients: { type: [IngredientSchema], required: true },
+    description: { type: String, required: true }, // Ajout dans le schéma
+});
+const Recipe = mongoose_1.default.model("Recipe", RecipeSchema);
+exports.default = Recipe;

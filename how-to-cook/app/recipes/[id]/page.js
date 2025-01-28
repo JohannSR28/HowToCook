@@ -243,7 +243,7 @@ export default function Recipe({ params }) {
   );
 }
 
-// /frontend/utils/api.ts
+//
 export const getRecipeById = async (id) => {
   const response = await fetch(`http://localhost:5000/api/recipes/${id}`, {
     method: "GET",

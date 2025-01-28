@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/register.module.css";
+import { registerUser } from "../api/api";
 
 export default function RegisterForm() {
   const [name, setName] = useState("");
@@ -48,31 +49,14 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Empêche le rechargement de la page
+
     try {
-      const response = await fetch("http://localhost:5000/api/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          username: userName,
-          email: email,
-          password: password,
-        }),
+      await registerUser({
+        name,
+        username: userName,
+        email,
+        password,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        if (data.error) {
-          setError(true);
-          setErrorMessage(data.error);
-        } else {
-          setErrorMessage("An unexpected error occurred.");
-        }
-        return;
-      }
 
       setSubmitted(true); // Déclenche le succès
     } catch (err) {

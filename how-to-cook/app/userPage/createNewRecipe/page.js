@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../../../styles/CreateNewRecipe.module.css";
 import { useUser } from "../../../contexts/UserContext";
 import { toast } from "react-hot-toast";
+import { createRecipe } from "../../../app/api/api";
 
 export default function CreateNewRecipe() {
   const { user } = useUser();
@@ -88,30 +89,7 @@ export default function CreateNewRecipe() {
     };
 
     try {
-      // Envoi de la requête au backend
-      const response = await fetch(
-        "http://localhost:5000/api/recipes/create/",
-        {
-          method: "POST", // Type de requête
-          headers: {
-            "Content-Type": "application/json", // Type des données envoyées
-          },
-          body: JSON.stringify(recipeFinal), // Convertit les données en JSON
-        }
-      );
-
-      const data = await response.json(); // Récupère la réponse au format JSON
-
-      // Vérification de la réponse
-      if (!response.ok) {
-        if (data.error) {
-          toast.error(data.error); // Affiche l'erreur retournée par le backend
-        } else {
-          toast.error("Une erreur inattendue est survenue."); // Message générique
-        }
-        return;
-      }
-
+      await createRecipe(recipeFinal);
       // Succès
       toast.success("Recette créée avec succès !");
       goBack();

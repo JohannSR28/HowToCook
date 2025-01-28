@@ -2,6 +2,7 @@
 import styles from "../../styles/register.module.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { authUser } from "../api/api";
 
 export default function LoginForm() {
   const [userName, setUserName] = useState("");
@@ -11,30 +12,22 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/auth", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: userName,
-          password: password,
-        }),
+      const data = await authUser({
+        username: userName,
+        password: password,
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        toast.error(data.error || "An unexpected error occurred.");
-        return;
-      }
-
       localStorage.setItem("token", data.token);
-      toast.success("User " + userName + " successfully connected!");
+      toast.success(`Utilisateur ${userName} connecté avec succès !`);
       window.location.href = "/";
     } catch (err) {
-      console.error(err);
-      toast.error("Failed to connect to the server. Please try again.");
+      if (err.message.includes("Invalid credentials")) {
+        toast.error("Identifiants incorrects");
+      } else if (err.message.includes("User not found")) {
+        toast.error("Utilisateur introuvable");
+      } else {
+        toast.error(err.message || "Erreur de connexion au serveur");
+      }
     }
   };
 

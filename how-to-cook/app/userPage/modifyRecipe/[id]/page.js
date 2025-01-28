@@ -7,6 +7,7 @@ import styles from "../../../../styles/CreateNewRecipe.module.css";
 //import GeolocationComponent from "../../../components/GeoLocalisationComponent";
 import { useUser } from "../../../../contexts/UserContext";
 import toast from "react-hot-toast";
+import { getRecipeById, updateRecipe } from "../../../api/api";
 
 export default function Recipe({ params }) {
   const router = useRouter();
@@ -110,47 +111,27 @@ export default function Recipe({ params }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault();
 
-    // Prépare l'objet final de la recette
     const recipeFinal = {
       ...recipeData,
-      cost: calculateCost(ingredients), // Calcule le coût total
-      ingredients: ingredients, // Ajoute la liste des ingrédients
+      cost: calculateCost(ingredients),
+      ingredients: ingredients,
     };
 
     try {
-      // Envoi de la requête au backend
-      const response = await fetch(
-        `http://localhost:5000/api/recipes/update/${id}`,
-        {
-          method: "PUT", // Type de requête
-          headers: {
-            "Content-Type": "application/json", // Type des données envoyées
-          },
-          body: JSON.stringify(recipeFinal), // Convertit les données en JSON
-        }
-      );
-
-      const data = await response.json(); // Récupère la réponse au format JSON
-
-      // Vérification de la réponse
-      if (!response.ok) {
-        if (data.error) {
-          toast.error(data.error); // Affiche l'erreur retournée par le backend
-        } else {
-          toast.error("Une erreur inattendue est survenue."); // Message générique
-        }
-        return;
-      }
-
-      // Succès
+      await updateRecipe(id, recipeFinal);
       toast.success("Recette modifiée avec succès !");
       goBack();
     } catch (err) {
-      // Gestion des erreurs réseau ou serveur
-      console.error(err);
-      toast.error("Échec de la connexion au serveur. Veuillez réessayer.");
+      // Gestion des erreurs spécifiques
+      if (err.message.includes("non autorisé")) {
+        toast.error("Vous n'avez pas les droits pour modifier cette recette");
+      } else if (err.message.includes("introuvable")) {
+        toast.error("Recette non trouvée");
+      } else {
+        toast.error(err.message || "Échec de la connexion au serveur");
+      }
     }
   };
 
@@ -306,26 +287,6 @@ export default function Recipe({ params }) {
     </div>
   );
 }
-
-// /frontend/utils/api.ts
-export const getRecipeById = async (id) => {
-  const response = await fetch(
-    `http://localhost:5000/api/recipes/update/${id}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Failed to fetch the recipe.");
-  }
-
-  return response.json(); // Retourne les données JSON
-};
 
 function calculateCost(ingredient) {
   let totalCost = 0;

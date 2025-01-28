@@ -245,12 +245,15 @@ export default function Recipe({ params }) {
 
 //
 export const getRecipeById = async (id) => {
-  const response = await fetch(`http://localhost:5000/api/recipes/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    `https://howtocook.onrender.com/api/recipes/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (!response.ok) {
     const error = await response.json();
@@ -261,12 +264,15 @@ export const getRecipeById = async (id) => {
 };
 
 export const getUserById = async (id) => {
-  const response = await fetch(`http://localhost:5000/api/users/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await fetch(
+    `https://howtocook.onrender.com/api/users/${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (!response.ok) {
     const error = await response.json();

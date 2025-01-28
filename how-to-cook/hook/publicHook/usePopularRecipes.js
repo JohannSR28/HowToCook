@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fetchPopularRecipes } from "../../app/api/api"; // Importez la fonction API
 //import toast from "react-hot-toast";
 
 const usePopularRecipes = (nb) => {
@@ -14,28 +15,10 @@ const usePopularRecipes = (nb) => {
       setError(null); // Réinitialise l'erreur
 
       try {
-        // toast.loading("Chargement des recettes populaires...");
-        const response = await fetch(
-          `http://localhost:5000/api/recipes/mostLiked/${nb}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          const errorMessage = await response.text();
-          throw new Error(errorMessage || "Erreur de récupération.");
-        }
-
-        const data = await response.json();
-        setRecipes(data); // Met à jour les recettes
-        // toast.dismiss(); // Supprime le toast de chargement
-        // toast.success("Recettes populaires récupérées avec succès !");
+        const data = await fetchPopularRecipes(nb);
+        setRecipes(data);
       } catch (err) {
-        setError(err.message); // Met à jour l'erreur
+        setError(err.message); // Met à jour l'erreury
         // toast.dismiss(); // Supprime le toast de chargement
         // toast.error(`Erreur : ${err.message}`);
       } finally {

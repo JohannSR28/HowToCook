@@ -7,6 +7,7 @@ import ColorLike from "../../../components/ColorLike";
 import GeolocationComponent from "../../../components/GeoLocalisationComponent";
 import { useUser } from "../../../contexts/UserContext";
 import toast from "react-hot-toast";
+import { getRecipeById, deleteRecipe } from "../../api/api";
 
 export default function Recipe({ params }) {
   const router = useRouter();
@@ -60,19 +61,9 @@ export default function Recipe({ params }) {
     router.push(`/userPage/modifyRecipe/${id}`);
   };
 
-  const deleteRecipe = async (id) => {
+  const deleteRecipeEvent = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/recipes/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to delete the recipe.");
-      }
+      deleteRecipe(id); // Appel de l'API pour supprimer la recette
       toast.success("Recette supprimée avec succès !");
       router.back();
     } catch (err) {
@@ -97,7 +88,7 @@ export default function Recipe({ params }) {
         ) : null}
         {user && user.userId == recipe.author ? (
           <button
-            onClick={() => deleteRecipe(recipe._id)}
+            onClick={() => deleteRecipeEvent(recipe._id)}
             className={styles.button1}
           >
             Supprimer la recette
@@ -242,42 +233,3 @@ export default function Recipe({ params }) {
     </div>
   );
 }
-
-//
-export const getRecipeById = async (id) => {
-  const response = await fetch(
-    `https://howtocook.onrender.com/api/recipes/${id}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Failed to fetch the recipe.");
-  }
-
-  return response.json(); // Retourne les données JSON
-};
-
-export const getUserById = async (id) => {
-  const response = await fetch(
-    `https://howtocook.onrender.com/api/users/${id}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "Failed to fetch the user.");
-  }
-
-  return response.json(); // Retourne les données JSON
-};

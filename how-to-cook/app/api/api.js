@@ -76,6 +76,42 @@ export const createRecipe = async (recipeData) => {
   }
 };
 
+export const getUserById = async (id) => {
+  const response = await fetch(
+    `https://howtocook.onrender.com/api/users/${id}`,
+    {
+      method: "GET",
+      headers: publicHeaders(),
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || "Failed to fetch the user.");
+  }
+
+  return response.json(); // Retourne les données JSON
+};
+
+export const deleteRecipe = async (id) => {
+  try {
+    const response = await fetch(`${BASE_URL}/recipes/delete/${id}`, {
+      method: "DELETE",
+      headers: headers(),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || "Failed to delete the recipe.");
+    }
+
+    return response.json();
+  } catch (err) {
+    console.error("API Error (deleteRecipe):", err);
+    throw err;
+  }
+};
+
 export const getRecipeById = async (id) => {
   const response = await fetch(`${BASE_URL}/recipes/update/${id}`, {
     method: "PUT",

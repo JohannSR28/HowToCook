@@ -1,4 +1,4 @@
-const BASE_URL = "https://howtocook.onrender.com/api"; // "http://localhost:5000/api";
+const BASE_URL = "https://howtocook-backend.onrender.com/api"; // "http://localhost:5000/api";
 
 const headers = () => {
   const token = localStorage.getItem("token");

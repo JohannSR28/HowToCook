@@ -10,7 +10,6 @@ const app = express();
 dotenv.config();
 
 // Middlewares
-// Remplacez par :
 const allowedOrigins = [
   "http://localhost:3000",
   "https://how-to-cook-two.vercel.app/",
@@ -31,6 +30,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.set("trust proxy", 1); // Important pour les cookies sécurisés en production
 
 app.use(express.json());
 

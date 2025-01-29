@@ -10,7 +10,28 @@ const app = express();
 dotenv.config();
 
 // Middlewares
-app.use(cors({ origin: "http://localhost:3000" }));
+// Remplacez par :
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://how-to-cook-two.vercel.app/",
+  "https://how-to-cook-johanns-projects-36ee6764.vercel.app/",
+  "https://how-to-cook-git-main-johanns-projects-36ee6764.vercel.app/",
+  "https://how-to-cook-gzxcc3zri-johanns-projects-36ee6764.vercel.app/",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // Connexion à MongoDB

@@ -22,7 +22,7 @@ export default function UserPage() {
     <div className={styles.container}>
       <h1 className={styles.HowToCooklogo}>How To Cook</h1>
       <div className={styles.welcomeMessage}>
-        Bienvenue, Chef {user.username}
+        Bienvenue, Chef {user?.username || ""}
       </div>
       <div className={styles.buttonContainer}>
         <div style={{ display: "flex", flexDirection: "column" }}>

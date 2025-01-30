@@ -1,6 +1,6 @@
 # How To Cook
 
-Lien du site web [https://how-to-cook-cyan.vercel.app/]
+Lien du site web https://how-to-cook-cyan.vercel.app/
 
 ## Description
 **How To Cook** est une plateforme web permettant aux utilisateurs de partager, créer, modifier, mettre à jour et supprimer des recettes. Les visiteurs peuvent consulter les recettes disponibles, tandis que les utilisateurs authentifiés peuvent gérer leurs propres recettes.

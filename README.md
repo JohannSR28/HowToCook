@@ -65,5 +65,5 @@ Les contributions sont les bienvenues ! N'hésite pas à forker le projet et pro
 MIT License
 
 ## Contact
-Pour toute question ou suggestion, n'hésite pas à me contacter à [ton-email@example.com].
+Pour toute question ou suggestion, n'hésite pas à me contacter à [souroujohann82@gmail.com].
 

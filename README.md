@@ -29,11 +29,13 @@ Lien du site web https://how-to-cook-cyan.vercel.app/
 - MongoDB en service (local ou distant)
 
 ### Installation
-1. Cloner le projet :
+1. Cloner le projet : 
    ```bash
    git clone https://github.com/ton-repo/how-to-cook.git
-   cd how-to-cook
+   cd how-to-cook (pour le front-end)
+   cd backend (pour le back-end)
    ```
+   Le backend et le front end doivent être initialisés séparément.
 2. Installer les dépendances :
    ```bash
    npm install

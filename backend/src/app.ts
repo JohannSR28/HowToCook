@@ -12,10 +12,10 @@ dotenv.config();
 // Middlewares
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://how-to-cook-two.vercel.app/",
-  "https://how-to-cook-johanns-projects-36ee6764.vercel.app/",
-  "https://how-to-cook-git-main-johanns-projects-36ee6764.vercel.app/",
-  "https://how-to-cook-gzxcc3zri-johanns-projects-36ee6764.vercel.app/",
+  "https://how-to-cook-cyan.vercel.app",
+  "https://how-to-cook-git-main-johanns-projects-36ee6764.vercel.app",
+  "https://how-to-cook-ieqweoxwe-johanns-projects-36ee6764.vercel.app",
+  "https://how-to-cook-johanns-projects-36ee6764.vercel.app",
 ];
 
 app.use(

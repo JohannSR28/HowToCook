@@ -77,13 +77,10 @@ export const createRecipe = async (recipeData) => {
 };
 
 export const getUserById = async (id) => {
-  const response = await fetch(
-    `https://howtocook.onrender.com/api/users/${id}`,
-    {
-      method: "GET",
-      headers: publicHeaders(),
-    }
-  );
+  const response = await fetch(`${BASE_URL}/users/${id}`, {
+    method: "GET",
+    headers: publicHeaders(),
+  });
 
   if (!response.ok) {
     const error = await response.json();
@@ -95,7 +92,7 @@ export const getUserById = async (id) => {
 
 export const deleteRecipe = async (id) => {
   try {
-    const response = await fetch(`${BASE_URL}/recipes/delete/${id}`, {
+    const response = await fetch(`${BASE_URL}/recipes/${id}`, {
       method: "DELETE",
       headers: headers(),
     });

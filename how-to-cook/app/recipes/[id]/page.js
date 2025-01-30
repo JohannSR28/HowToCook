@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { getRecipeById, deleteRecipe, getUserById } from "../../api/api";
 import { useRouter } from "next/navigation";
 import styles from "../../../styles/RecipeIdPage.module.css";
 import IngredientList from "../../../components/IngredientList";
@@ -7,51 +8,54 @@ import ColorLike from "../../../components/ColorLike";
 import GeolocationComponent from "../../../components/GeoLocalisationComponent";
 import { useUser } from "../../../contexts/UserContext";
 import toast from "react-hot-toast";
-import { getRecipeById, deleteRecipe } from "../../api/api";
 
 export default function Recipe({ params }) {
   const router = useRouter();
   const { user } = useUser();
   const [author, setAuthor] = useState(null);
   const [recipe, setRecipe] = useState(null);
+  const [loadingRecipe, setLoadingRecipe] = useState(true);
+  const [loadingAuthor, setLoadingAuthor] = useState(true);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   // Déstructure les paramètres avec React.use()
   const resolvedParams = React.use(params);
   const { id } = resolvedParams;
 
   useEffect(() => {
-    const fetchRecipe = async () => {
+    const fetchData = async () => {
       try {
-        const data = await getRecipeById(id); // Appel de l'API pour récupérer la recette
-        setRecipe(data);
+        setLoadingRecipe(true);
+        const recipeRequest = await getRecipeById(id);
+        const recipeData = recipeRequest.recipe;
+
+        console.log("Données reçues pour la recette :", recipeData);
+        if (!recipeData || !recipeData.author) {
+          console.error("recipeData.author est undefined !");
+          return;
+        }
+
+        setRecipe(recipeData);
+
+        if (recipeData && recipeData.author) {
+          setLoadingAuthor(true);
+          console.log(
+            `Récupération de l'auteur avec l'ID: ${recipeData.author}`
+          );
+          const authorData = await getUserById(recipeData.author);
+          console.log("Données reçues pour l'auteur :", authorData);
+          setAuthor(authorData);
+        }
       } catch (err) {
-        setError(err.message); // Capture l'erreur
+        setError(err.message);
       } finally {
-        setLoading(false); // Arrête l'état de chargement
+        setLoadingRecipe(false);
+        setLoadingAuthor(false);
       }
     };
 
-    fetchRecipe();
+    fetchData();
   }, [id]);
-
-  useEffect(() => {
-    const fetchAuthor = async () => {
-      try {
-        const data = await getUserById(recipe.author); // Appel de l'API pour récupérer l'auteur
-        setAuthor(data);
-      } catch (err) {
-        setError(err.message); // Capture l'erreur
-      } finally {
-        setLoading(false); // Arrête l'état de chargement
-      }
-    };
-
-    if (recipe) {
-      fetchAuthor();
-    }
-  }, [recipe]);
 
   const goBack = () => {
     router.back(); // Revient à la page précédente
@@ -71,8 +75,13 @@ export default function Recipe({ params }) {
     }
   };
 
-  if (loading) return <div>Chargement...</div>;
-  if (error) return <div>Erreur : {error}</div>;
+  if (loadingRecipe || (recipe && loadingAuthor)) {
+    return <div>Chargement...</div>;
+  }
+
+  if (error) {
+    return <div>Erreur : {error}</div>;
+  }
 
   // Affichage de la recette
   return (
@@ -164,7 +173,7 @@ export default function Recipe({ params }) {
           }}
         >
           <ColorLike />
-          {recipe.likes.length}
+          {recipe && recipe.likes ? recipe.likes.length : 0}
         </div>
       </div>
       <div className={styles.customBackground}>

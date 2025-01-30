@@ -27,7 +27,7 @@ export default function UserPage() {
       <div className={styles.buttonContainer}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <button className={styles.button1} onClick={goToSeeAllUserRecipe}>
-            Voir Toutes vos recttes
+            Voir Toutes vos recettes
           </button>
           <button className={styles.button1Close}>
             Démarrez une planification

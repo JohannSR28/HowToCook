@@ -22,6 +22,10 @@ const IngredientList = ({ recipe }) => {
       .toFixed(2); // Limite à 2 décimales
   };
 
+  if (!recipe || !recipe.ingredients) {
+    return <div>Aucune recette disponible</div>;
+  }
+
   return (
     <div>
       <ul>
